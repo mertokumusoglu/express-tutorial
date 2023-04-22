@@ -17,4 +17,4 @@ bookInstanceSchema.virtual("url").get(() => {
     return `/catalog/bookinstance/${this._id}`
 })
 
-module.exports = mongoose.model("BookInstance", bookInstanceSchema)
+module.exports = mongoose.model("BookInstance", bookInstanceSchema) 

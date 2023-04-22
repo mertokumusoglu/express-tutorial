@@ -23,4 +23,4 @@ authorSchema.virtual("url").get(() => {
     return `/catalog/author/${this._id}`;
 });
 
-module.exports = mongoose.model("Author", authorSchema);
+module.exports = mongoose.model("Author", authorSchema); 
