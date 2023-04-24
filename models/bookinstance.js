@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-const Schema = require("Schema");
+const { Schema } = mongoose;
 
 const bookInstanceSchema = new Schema({
     book: {type: Schema.Types.ObjectId, ref: "book", required: true},

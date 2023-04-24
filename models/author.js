@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-const Schema = require("Schema");
+const { Schema } = mongoose;
 
 const authorSchema = new Schema({
     first_name: {type: String, required: true, maxLenght: 100},
