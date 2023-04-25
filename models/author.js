@@ -8,15 +8,16 @@ const authorSchema = new Schema({
     date_of_death: {type: Date},
 });
 
-authorSchema.virtual("name").get(() => {
+authorSchema.virtual("name").get(function () {
     let full_name = ""
     
     if(this.first_name && this.family_name) {
-        full_name = `${first_name} ${family_name}`
+        full_name = `${this.first_name} ${this.family_name}`
     }
-    else {
-        return full_name
+    if(!this.first_name || !this.family_name) {
+        full_name = ""
     }
+    return full_name
 });
 
 authorSchema.virtual("url").get(() => {
