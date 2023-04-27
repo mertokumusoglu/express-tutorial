@@ -1,11 +1,11 @@
 const BookInstance = require("../models/bookinstance");
 const asyncHandler = require('express-async-handler')
+const Book = require('../models/book')
+const { body, validationResult } = require("express-validator");
 
 // Display list of all BookInstances.
 exports.bookinstance_list = asyncHandler(async (req, res, next) => {
-  const allBookInstances = await BookInstance.find()
-  .populate(book)
-  .exec();
+  const allBookInstances = await BookInstance.find().populate("book").exec();
 
   res.render("bookinstance_list", {
     title: "Book Instance List",
