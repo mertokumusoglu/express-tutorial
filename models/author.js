@@ -21,9 +21,13 @@ authorSchema.virtual("name").get(function () {
     return full_name
 });
 
-authorSchema.virtual("url").get(() => {
-    return `/catalog/author/${this._id}`;
+authorSchema.virtual("url").get(function() {
+    return `/catalog/author/${this._id}`
 });
+
+authorSchema.virtual("lifespan").get(function() {
+    return `${this.date_of_birth ? DateTime.fromJSDate(this.date_of_birth).toLocaleString(DateTime.DATE_MED) : ""} - ${this.date_of_death ? DateTime.fromJSDate(this.date_of_death).toLocaleString(DateTime.DATE_MED) : ""}`
+})
 
 authorSchema.virtual("date_of_birth_formatted").get(function() {
     return this.date_of_birth ? DateTime.fromJSDate(this.date_of_birth).toLocaleString(DateTime.DATE_MED) : ""
